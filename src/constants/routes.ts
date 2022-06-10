@@ -1,0 +1,9 @@
+export const AUTH = '/auth/*'
+export const APP = '/app/*'
+export const LOGIN = '/login/*';
+export const AUTHLOGIN = '/auth/login/*';
+export const DASHBOARD = '/dashboard/*';
+export const APPDASH = '/app/dashboard/*';
+export const REGISTER = '/register/*';
+export const NUEVAOFERTA = '/nueva-oferta/*';
+export const FICHA = '/ficha/*';
