@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BrowserRouter,Routes, Route } from "react-router-dom";
 import * as ROUTES from "../constants/routes";
 import { PublicRoutes } from "./publicRoutes";
 import AuthRouter from "./authRouter";
 import { PrivateRoutes } from "./privateRoutes";
 import { ApplicationRouter } from "./applicationRouter";
+import AuthContext from "../store/authContext";
 
 export default function PrincipalRoutes(){
-    const isLogged = false;
+    const ctx = useContext(AuthContext)
+    console.log(ctx.onLogin)
 
     return(
         <BrowserRouter>
@@ -15,7 +17,7 @@ export default function PrincipalRoutes(){
                 <Route
                 path={ROUTES.AUTH}
                 element={
-                    <PublicRoutes isLogged={isLogged}>
+                    <PublicRoutes isLogged={ctx.isLoggedIn}>
                         <AuthRouter />
                     </PublicRoutes>
                 }
@@ -23,7 +25,7 @@ export default function PrincipalRoutes(){
                 <Route
                 path={ROUTES.APP}
                 element={
-                    <PrivateRoutes isLogged={isLogged}>
+                    <PrivateRoutes isLogged={ctx.isLoggedIn}>
                         <ApplicationRouter />
                     </PrivateRoutes>
                 }

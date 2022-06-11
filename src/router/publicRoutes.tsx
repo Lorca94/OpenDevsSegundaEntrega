@@ -8,5 +8,5 @@ interface Props {
 }
 
 export const PublicRoutes: React.FC<Props> = ({ children, isLogged }) => {
-    return isLogged ? <Navigate to={ROUTES.DASHBOARD} /> : children
+    return isLogged ? <Navigate to={ROUTES.APPDASH} /> : children
 }

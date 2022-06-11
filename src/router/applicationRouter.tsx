@@ -9,7 +9,7 @@ export function ApplicationRouter() {
     return(
         <>
             <Routes>
-                <Route path={ROUTES.DASHBOARD || "/"} element={<Dashboard />} />
+                <Route path={ROUTES.APPDASH || "/"} element={<Dashboard />} />
                 <Route path={ROUTES.FICHA} element={<Ficha />} />
                 <Route path={ROUTES.NUEVAOFERTA} element={<NuevaOferta />} />
             </Routes>

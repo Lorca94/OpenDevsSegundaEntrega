@@ -1,25 +1,28 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { Button, Checkbox, CheckboxGroup, Flex, FormControl, FormLabel, Input, InputGroup, InputRightElement, Link, Spacer, Text } from "@chakra-ui/react";
 import data from "../../fakeDb/users.json";
+import AuthContext from "../../store/authContext";
 
 export default function LoginForm() {
     const [show, setShow] = useState(false);
     const handleCLick = () => setShow(!show);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const authContext = useContext(AuthContext);
 
     function validateForm() {
-        return email.includes("@") && email.length > 0 && password.length > 0;
+        return email.includes("@") && email.length > 0 && password.length > 8;
     }
+
     function handleChange(e: any) {
         e.preventDefault();
         for(let i = 0; i < data.length; i++) {
             if( data[i].email === email && data[i].password === password ){
-                console.log("email coincide");
-                console.log("contraseña coincide")
+                authContext.onLogin(email,password)
+                setEmail("");
+                setPassword("")
             } else {
-                console.log("no coincide");
             }
         }
     }
