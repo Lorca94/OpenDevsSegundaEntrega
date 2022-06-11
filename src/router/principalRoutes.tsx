@@ -5,7 +5,6 @@ import { PublicRoutes } from "./publicRoutes";
 import AuthRouter from "./authRouter";
 import { PrivateRoutes } from "./privateRoutes";
 import { ApplicationRouter } from "./applicationRouter";
-import NotFound from "../pages/notfound";
 
 export default function PrincipalRoutes(){
     const isLogged = false;
